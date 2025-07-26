@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Prospects</h2>
+<a href="{{ url_for('add_prospect') }}" class="btn btn-success mb-2">Add Prospect</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Note</th>
+            <th>Color</th>
+            <th>Demo Date</th>
+            <th>Review Date</th>
+            <th>Onboarding Date</th>
+            <th>Sold</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for p in prospects %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.note }}</td>
+            <td>{{ p.color }}</td>
+            <td>{{ p.demo_date }}</td>
+            <td>{{ p.review_date }}</td>
+            <td>{{ p.onboarding_date }}</td>
+            <td>{% if p.sold %}Yes{% else %}No{% endif %}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
